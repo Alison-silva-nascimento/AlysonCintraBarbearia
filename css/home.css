@@ -244,7 +244,7 @@
     margin-top: 8px;
 
     color:
-        rgba(255, 255, 255, 0.63);
+        rgba(255, 255, 255, 0.74);
 }
 
 
@@ -263,7 +263,7 @@
     line-height: 1.75;
 
     color:
-        rgba(255, 255, 255, 0.69);
+        rgba(255, 255, 255, 0.80);
 
     animation:
         fadeUp 800ms ease
@@ -1226,6 +1226,7 @@ p:not(.section-eyebrow) {
 
     .hero h1 {
         max-width: 760px;
+        font-size: clamp(3.3rem, 6vw, 5.7rem);
     }
 
 
@@ -1790,7 +1791,7 @@ p:not(.section-eyebrow) {
         radial-gradient(circle at 20% 74%, rgba(191, 145, 74, 0.12), transparent 42%),
         radial-gradient(circle at 82% 20%, rgba(255, 255, 255, 0.10), transparent 40%),
         linear-gradient(90deg, rgba(18, 16, 14, 0.94) 0%, rgba(18, 16, 14, 0.88) 34%, rgba(18, 16, 14, 0.49) 59%, rgba(18, 16, 14, 0.08) 100%),
-        url("../assets/images/hero/barber-chair-ai.png");
+        url("../assets/images/hero/barber-chair-ai.jpg");
     background-repeat: no-repeat;
     background-size: auto, auto, auto, cover;
     background-position: center, center, center, right center;
@@ -1813,7 +1814,7 @@ p:not(.section-eyebrow) {
     .hero-background {
         background-image:
             linear-gradient(180deg, rgba(8, 8, 8, 0.48) 0%, rgba(8, 8, 8, 0.66) 42%, rgba(8, 8, 8, 0.92) 100%),
-            url("../assets/images/hero/barber-chair-ai.png");
+            url("../assets/images/hero/barber-chair-ai.jpg");
         background-size: cover;
         background-position: center;
         filter: none;

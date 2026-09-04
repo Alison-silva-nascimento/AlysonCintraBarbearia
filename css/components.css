@@ -1829,6 +1829,31 @@ img {
 .professionals-grid { grid-template-columns: minmax(0, 390px); }
 .testimonials-pending { grid-template-columns: minmax(0, 700px); }
 
+.professional-specialties {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 18px 0 0;
+}
+
+.professional-specialties li {
+    padding: 5px 8px;
+    color: var(--color-text-soft);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.professional-links a[target="_blank"]::after,
+.contact-item a[target="_blank"]::after,
+.footer-column a[target="_blank"]::after {
+    content: "↗";
+    margin-left: 5px;
+    font-size: 0.78em;
+}
+
 /* Perguntas e feedbacks enviados pelo visitante. */
 .feedback-heading-action {
     display: grid;

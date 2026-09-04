@@ -75,12 +75,15 @@
     'use strict';
 
     const storageKey = 'alyson-cintra-feedbacks';
+    const whatsappUrl = 'https://wa.me/5564981366855';
     const dialog = document.getElementById('feedbackDialog');
     const form = document.getElementById('feedbackForm');
     const cards = document.getElementById('feedbackCards');
     const status = document.getElementById('feedbackStatus');
     const triggers = document.querySelectorAll('.feedback-trigger');
     const closeButton = dialog?.querySelector('.feedback-close');
+    const typeSelect = document.getElementById('feedbackType');
+    const ratingFieldset = form?.querySelector('.rating-fieldset');
     let opener = null;
 
     if (!dialog || !form || !cards) return;
@@ -131,7 +134,7 @@
         cards.classList.toggle('testimonials-pending', feedbacks.length === 0);
 
         if (!feedbacks.length) {
-            cards.innerHTML = '<article class="testimonial-card testimonial-empty"><blockquote>Seja a primeira pessoa a compartilhar sua experiência ou enviar uma pergunta.</blockquote><footer><strong>Alyson Cintra Barbearia</strong><span>Aguardando</span></footer></article>';
+            cards.innerHTML = '<article class="testimonial-card testimonial-empty"><blockquote>Seja a primeira pessoa a compartilhar sua experiência.</blockquote><footer><strong>Alyson Cintra Barbearia</strong><span>Aguardando</span></footer></article>';
             return;
         }
 
@@ -151,6 +154,15 @@
     });
     dialog.addEventListener('close', () => opener?.focus());
 
+    const updateMessageType = () => {
+        const isQuestion = typeSelect.value === 'Pergunta';
+        ratingFieldset.hidden = isQuestion;
+        ratingFieldset.disabled = isQuestion;
+    };
+
+    typeSelect.addEventListener('change', updateMessageType);
+    updateMessageType();
+
     form.addEventListener('submit', event => {
         event.preventDefault();
         const data = new FormData(form);
@@ -164,11 +176,21 @@
             return;
         }
 
+        if (type === 'Pergunta') {
+            const text = `Olá, sou ${name}. Tenho uma pergunta: ${message}`;
+            window.open(`${whatsappUrl}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+            form.reset();
+            updateMessageType();
+            status.textContent = 'Abrindo o WhatsApp para você enviar sua pergunta.';
+            return;
+        }
+
         feedbacks.unshift({ name, message, type, rating });
         saveFeedbacks(feedbacks.slice(0, 24));
         feedbacks = feedbacks.slice(0, 24);
         renderFeedbacks();
         form.reset();
+        updateMessageType();
         status.textContent = 'Mensagem publicada nos cards abaixo.';
     });
 
