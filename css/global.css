@@ -1,0 +1,644 @@
+/* =========================================================
+   ALYSON CINTRA BARBEARIA
+   global.css
+   Base global do projeto
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    /* CORES */
+
+    --color-bg: #111111;
+    --color-bg-soft: #181818;
+    --color-surface: #202020;
+    --color-surface-light: #282828;
+
+    --color-white: #ffffff;
+    --color-text: #f3f3f3;
+    --color-text-soft: #d7d7d7;
+    --color-muted: #8e8e8e;
+
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-border-strong: rgba(255, 255, 255, 0.22);
+
+    --color-overlay: rgba(0, 0, 0, 0.58);
+    --color-overlay-strong: rgba(0, 0, 0, 0.78);
+
+    --color-glass: rgba(17, 17, 17, 0.72);
+
+
+    /* TIPOGRAFIA */
+
+    --font-heading: "Manrope", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+
+
+    /* CONTAINER */
+
+    --container-width: 1240px;
+    --container-padding: 24px;
+
+
+    /* ESPAÇAMENTO */
+
+    --section-space: 120px;
+    --section-space-mobile: 80px;
+
+
+    /* BORDAS */
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+
+
+    /* TRANSIÇÕES */
+
+    --transition-fast: 180ms ease;
+    --transition-base: 280ms ease;
+    --transition-slow: 480ms ease;
+
+
+    /* HEADER */
+
+    --header-height: 86px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: var(--color-text);
+    background: var(--color-bg);
+
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    color: #111111;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #525252;
+}
+
+
+/* =========================================================
+   ELEMENTOS BASE
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--color-white);
+}
+
+p {
+    color: var(--color-text-soft);
+}
+
+strong {
+    font-weight: 600;
+}
+
+main {
+    width: 100%;
+}
+
+section {
+    position: relative;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(
+        calc(100% - (var(--container-padding) * 2)),
+        var(--container-width)
+    );
+
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
+.section {
+    padding-block: var(--section-space);
+}
+
+
+/* =========================================================
+   TÍTULOS DE SEÇÃO
+   ========================================================= */
+
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+
+    color: var(--color-muted);
+}
+
+.section-eyebrow::before {
+    content: "";
+
+    width: 28px;
+    height: 1px;
+
+    background: currentColor;
+}
+
+.section-title {
+    max-width: 780px;
+
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 500;
+
+    letter-spacing: -0.045em;
+}
+
+.section-description {
+    max-width: 480px;
+
+    font-size: 1rem;
+    line-height: 1.8;
+
+    color: var(--color-muted);
+}
+
+
+/* =========================================================
+   CABEÇALHO DE SEÇÕES
+   ========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+
+    margin-bottom: 64px;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.btn {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 14px 26px;
+
+    border: 1px solid transparent;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base),
+        border-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary,
+.btn-light {
+    color: #111111;
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-light:hover {
+    color: #ffffff;
+    background: transparent;
+}
+
+.btn-secondary {
+    color: #ffffff;
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary:hover {
+    border-color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.btn-header {
+    min-height: 46px;
+    padding-inline: 22px;
+
+    color: #111111;
+    background: #ffffff;
+}
+
+.btn-header:hover {
+    color: #ffffff;
+    background: transparent;
+    border-color: #ffffff;
+}
+
+
+/* =========================================================
+   LINKS DE TEXTO
+   ========================================================= */
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding-bottom: 4px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    color: var(--color-white);
+
+    border-bottom: 1px solid var(--color-border-strong);
+
+    transition:
+        border-color var(--transition-base),
+        opacity var(--transition-base);
+}
+
+.text-link:hover {
+    border-color: var(--color-white);
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE / FOCO
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   IMAGENS
+   ========================================================= */
+
+.image-cover {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   OVERLAYS
+   ========================================================= */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+
+    background: var(--color-overlay);
+}
+
+.overlay-strong {
+    position: absolute;
+    inset: 0;
+
+    background: var(--color-overlay-strong);
+}
+
+
+/* =========================================================
+   UTILITÁRIOS
+   ========================================================= */
+
+.visually-hidden {
+    position: absolute !important;
+
+    width: 1px !important;
+    height: 1px !important;
+
+    padding: 0 !important;
+    margin: -1px !important;
+
+    overflow: hidden !important;
+
+    clip: rect(0, 0, 0, 0) !important;
+
+    white-space: nowrap !important;
+
+    border: 0 !important;
+}
+
+.no-scroll {
+    overflow: hidden !important;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--color-muted);
+}
+
+
+/* =========================================================
+   ANIMAÇÕES BASE
+   ========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    :root {
+        --section-space: 96px;
+        --container-padding: 22px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 24px;
+
+        margin-bottom: 48px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    :root {
+        --header-height: 74px;
+        --section-space: var(--section-space-mobile);
+        --container-padding: 18px;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        min-height: 50px;
+
+        padding-inline: 22px;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    :root {
+        --container-padding: 16px;
+    }
+
+    .section {
+        padding-block: 68px;
+    }
+
+    .section-eyebrow {
+        margin-bottom: 14px;
+
+        font-size: 11px;
+    }
+
+    .section-heading {
+        margin-bottom: 36px;
+    }
+
+}
+
+/* Atalho de teclado: aparece somente quando recebe foco. */
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 16px;
+    z-index: 1100;
+    padding: 12px 18px;
+    color: #111;
+    background: #fff;
+    transform: translateY(calc(-100% - 20px));
+}
+.skip-link:focus { transform: translateY(0); }
+[id] { scroll-margin-top: 16px; }
