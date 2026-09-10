@@ -766,6 +766,21 @@ p:not(.section-eyebrow) {
     line-height: 1.65;
 }
 
+.unit-card address {
+    margin: 14px 0 24px;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.9rem;
+    font-style: normal;
+    line-height: 1.7;
+}
+
+.unit-map-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
 .unit-card .text-link { color: #ffffff; }
 
 .services {
