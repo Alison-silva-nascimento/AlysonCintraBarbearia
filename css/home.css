@@ -1998,6 +1998,12 @@ p:not(.section-eyebrow) {
     }
 }
 
+@media (min-width: 901px) {
+    .unit-card { min-height: 440px; }
+    .unit-card-content { padding: 28px; }
+    .unit-card h3 { font-size: clamp(1.45rem, 2.25vw, 2rem); }
+}
+
 /* A fachada dá contexto à marca sem ocupar a área do título. */
 .hero-background {
     background-image:

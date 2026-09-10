@@ -629,6 +629,17 @@ select:focus-visible {
 
 }
 
+/* Escala mais equilibrada em monitores desktop comuns. */
+@media (min-width: 901px) {
+    :root {
+        --container-width: 1180px;
+        --section-space: 96px;
+    }
+
+    .section-title { font-size: clamp(2.25rem, 4vw, 3.9rem); }
+    .section-heading { margin-bottom: 48px; }
+}
+
 /* Atalho de teclado: aparece somente quando recebe foco. */
 .skip-link {
     position: fixed;

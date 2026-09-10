@@ -2176,3 +2176,55 @@ img {
     .mobile-booking { padding-inline: 13px; }
     .floating-whatsapp { padding-inline: 11px; font-size: 0.61rem; }
 }
+
+/* Contato compacto no desktop: duas rotas à vista e atalhos abaixo. */
+@media (min-width: 901px) {
+    .contact-grid {
+        grid-template-columns: minmax(0, 0.64fr) minmax(0, 1.36fr);
+        gap: clamp(34px, 5vw, 70px);
+    }
+
+    .contact-content { display: contents; }
+
+    .contact-content > .section-eyebrow,
+    .contact-content > .section-title,
+    .contact-content > .contact-intro,
+    .contact-content > .opening-hours {
+        grid-column: 1;
+    }
+
+    .contact-map {
+        grid-column: 2;
+        grid-row: 1 / span 4;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-self: start;
+        gap: 14px;
+    }
+
+    .contact-map .map-card iframe,
+    .contact-map .map-card-secondary iframe {
+        height: 265px;
+    }
+
+    .contact-map .map-card-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px;
+    }
+
+    .contact-map .map-actions { justify-content: flex-start; }
+
+    .contact-details {
+        grid-column: 1 / -1;
+
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 26px;
+
+        margin-top: 6px;
+    }
+
+    .contact-item { grid-template-columns: 1fr; gap: 4px; padding-block: 14px; }
+    .contact-item > span { padding-top: 0; }
+}
