@@ -1,0 +1,230 @@
+/* =========================================================
+   AMERICAN CLASSIC BARBER CLUB
+   Camada visual editorial sobre a estrutura existente.
+   ========================================================= */
+
+:root {
+    --color-bg: #0d0c0a;
+    --color-bg-soft: #15120f;
+    --color-surface: #1b1713;
+    --color-surface-light: #282018;
+    --color-text: #f2ead9;
+    --color-text-soft: #e5dac4;
+    --color-muted: #ab9e88;
+    --color-border: rgba(214, 178, 76, 0.22);
+    --color-border-strong: rgba(214, 178, 76, 0.46);
+    --font-heading: "Cormorant Garamond", Georgia, serif;
+    --brass: #bd9a58;
+    --brass-light: #dfc278;
+    --wine: #6e2525;
+    --leather: #3a251c;
+}
+
+body {
+    background-color: var(--color-bg);
+    background-image: radial-gradient(circle at 7% 20%, rgba(143, 104, 49, 0.07), transparent 28rem);
+}
+
+.site-header {
+    background: rgba(13, 12, 10, 0.78);
+    border-bottom-color: rgba(214, 178, 76, 0.13);
+}
+
+.desktop-nav a { color: rgba(242, 234, 217, 0.74); }
+.desktop-nav a:hover, .desktop-nav a:focus-visible { color: var(--brass-light); }
+.desktop-nav a::after { background: var(--brass); }
+.brand::after { background: rgba(214, 178, 76, 0.28); }
+.brand::before { background: var(--brass-light); }
+
+.btn {
+    border-radius: 0;
+    letter-spacing: 0.13em;
+}
+
+.btn-primary, .btn-light {
+    color: #18120c;
+    background: var(--brass-light);
+    border-color: var(--brass-light);
+}
+
+.btn-primary:hover, .btn-light:hover {
+    color: var(--brass-light);
+    background: transparent;
+    border-color: var(--brass-light);
+}
+
+.btn-secondary { border-color: rgba(223, 194, 120, 0.5); }
+.btn-secondary:hover { color: #1a130d; background: var(--brass-light); border-color: var(--brass-light); }
+
+/* HERO */
+.hero { min-height: 100svh; background: #080706; }
+
+.hero-background {
+    transform: scale(1.035);
+    transform-origin: 75% 50%;
+    will-change: transform;
+    background-image:
+        linear-gradient(90deg, rgba(10, 9, 7, 0.98) 0%, rgba(10, 9, 7, 0.92) 31%, rgba(10, 9, 7, 0.58) 57%, rgba(10, 9, 7, 0.12) 100%),
+        url("../assets/images/hero/barber-chair-ai.jpg");
+    background-size: cover;
+    background-position: center, right center;
+}
+
+.hero-overlay {
+    background:
+        linear-gradient(180deg, rgba(7, 6, 5, 0.52), transparent 38%, rgba(7, 6, 5, 0.88)),
+        linear-gradient(90deg, rgba(7, 6, 5, 0.45), transparent 65%);
+}
+
+.hero::before {
+    opacity: 0.22;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.022) 0 1px, transparent 1px 4px),
+        radial-gradient(circle, rgba(240, 224, 186, 0.16) 0 1px, transparent 1.3px);
+    background-size: auto, 5px 5px;
+    mix-blend-mode: screen;
+}
+
+.hero-content { max-width: 740px; }
+.hero .section-eyebrow { color: var(--brass-light); letter-spacing: 0.22em; }
+.hero .section-eyebrow::before { background: var(--brass-light); }
+.hero h1 { font-size: clamp(4.6rem, 8vw, 8.2rem); font-weight: 600; letter-spacing: -0.065em; }
+.hero h1 .hero-line { display: block; color: #f3ead9; animation: classicHeroReveal 900ms both cubic-bezier(.2,.7,.2,1); }
+.hero h1 .hero-line + .hero-line { color: var(--brass-light); animation-delay: 170ms; }
+.hero-description { max-width: 430px; color: rgba(242, 234, 217, 0.79); animation: classicHeroReveal 900ms 320ms both cubic-bezier(.2,.7,.2,1); }
+.hero-actions { animation: classicHeroReveal 900ms 460ms both cubic-bezier(.2,.7,.2,1); }
+.hero-side-label { color: var(--brass-light); letter-spacing: .22em; }
+.scroll-indicator span:first-child { color: var(--brass-light); }
+.scroll-line { background: rgba(214, 178, 76, 0.32); }
+.scroll-line::after { background: var(--brass-light); }
+
+.hero-ticker {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    overflow: hidden;
+    padding: 12px 0;
+    color: #1a1208;
+    background: var(--brass-light);
+    border-top: 1px solid rgba(255,255,255,.48);
+    white-space: nowrap;
+}
+
+.hero-ticker div { display: inline-block; padding-left: 100%; font-size: .66rem; font-weight: 700; letter-spacing: .18em; animation: classicTicker 24s linear infinite; }
+.hero-ticker span { padding-inline: 18px; color: var(--wine); }
+
+@keyframes classicHeroReveal { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes classicTicker { to { transform: translateX(-50%); } }
+
+/* TIPOGRAFIA, TÍTULOS E FAIXA DE CONFIANÇA */
+.section-eyebrow { color: var(--brass); letter-spacing: .2em; }
+.section-eyebrow::before { background: var(--brass); }
+.section-title { color: var(--color-text); letter-spacing: -.055em; }
+.section-description, .contact-intro { color: var(--color-muted); }
+.trust-strip { background: #17110c; border-block-color: rgba(214,178,76,.25); }
+.trust-strip p { color: #cdbd9f; }
+.trust-strip strong { color: var(--brass-light); }
+.trust-strip-content > span { background: var(--wine); }
+
+/* UNIDADES */
+.units { background: linear-gradient(120deg, #15110d, #0e0d0b 52%, #20130f); }
+.unit-card { border-color: rgba(214,178,76,.24); }
+.unit-card::after { background: linear-gradient(180deg, rgba(7,6,4,.04) 24%, rgba(8,7,5,.95) 100%); }
+.unit-number, .unit-card address { color: #e1c98f; }
+.unit-card h3 { color: #f2ead9; }
+.unit-card .text-link { color: var(--brass-light); }
+
+/* SERVIÇOS: EDITORIAL */
+.services { background: #100e0b; }
+.services-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; }
+.service-card { grid-column: span 6; background: transparent; border-color: rgba(214,178,76,.18); }
+.service-card:nth-child(even) { transform: translateY(42px); }
+.service-card:hover { background: #1d1610; border-color: var(--brass); box-shadow: 0 26px 60px rgba(0,0,0,.32); }
+.service-image { aspect-ratio: 16 / 10; }
+.service-content { position: relative; min-height: 220px; padding: 32px 34px 28px; background: linear-gradient(135deg, #19130e, #120f0c); }
+.service-number { position: absolute; top: 23px; right: 28px; color: rgba(223,194,120,.32); font-family: var(--font-heading); font-size: 4.8rem; line-height: .7; }
+.service-content h3 { color: #f2ead9; font-size: 2rem; }
+.service-footer strong { color: var(--brass); }
+.service-footer a { color: var(--brass-light); }
+
+/* EXPERIÊNCIA E PROFISSIONAL */
+.experience::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(104,35,34,.18), transparent 42%); }
+.now-playing { display: inline-flex; gap: 11px; margin: 28px 0 0; color: var(--brass-light); font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.now-playing span { color: #f1dfba; }
+.now-playing::before { content: "◉"; color: var(--wine); animation: recordPulse 2s ease infinite; }
+@keyframes recordPulse { 50% { opacity: .45; transform: scale(.7); } }
+
+.professionals { background: linear-gradient(90deg, #0d0c0a, #18120f); }
+.professionals-grid { grid-template-columns: minmax(0, 1fr); }
+.professional-card { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1.18fr); min-height: 590px; overflow: visible; background: transparent; border: 1px solid rgba(214,178,76,.2); }
+.professional-image { position: sticky; top: 104px; height: min(72vh, 610px); overflow: hidden; align-self: start; }
+.professional-info { align-items: stretch; flex-direction: column; justify-content: space-between; padding: clamp(34px, 6vw, 84px); background: linear-gradient(140deg, #1a130e, #100e0b); }
+.professional-role { color: var(--brass); }
+.professional-info h3 { color: #f2ead9; font-size: clamp(3.2rem, 5vw, 5rem); }
+.professional-bio { max-width: 510px; color: #c9b99a; font-size: 1rem; }
+.professional-specialties li { color: var(--brass-light); border-color: rgba(214,178,76,.35); }
+.professional-links a { color: var(--brass-light); border-color: rgba(214,178,76,.35); }
+
+/* GALERIA E FEEDBACK */
+.gallery { background: #0e0d0b; }
+.gallery-grid { grid-template-columns: 1.15fr .85fr; grid-template-rows: 270px 270px; gap: 14px; }
+.gallery-grid .gallery-item:nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+.gallery-grid .gallery-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+.gallery-grid .gallery-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+.gallery-grid .gallery-item:nth-child(4) { display: none; }
+.gallery-item::after { background: linear-gradient(135deg, rgba(101,31,31,.2), rgba(0,0,0,.05)); }
+.gallery-item:hover::after { background: transparent; }
+.testimonials { background: #17120e; }
+.testimonial-card { background: linear-gradient(135deg, #21170f, #17110d); border-color: rgba(214,178,76,.24); }
+.testimonial-rating, .stars { color: var(--brass-light); }
+
+/* FAQ, AGENDAMENTO, CONTATO E RODAPÉ */
+.faq { background: #100d0b; }
+.faq-list { border-top-color: rgba(214,178,76,.3); }
+.faq-list details { border-bottom-color: rgba(214,178,76,.25); }
+.faq-list summary { color: #f2ead9; }
+.faq-list details[open] summary::after { color: var(--brass-light); }
+.booking-cta { background: #120d09; }
+.booking-background { filter: sepia(.35) contrast(1.08) brightness(.5); }
+.booking-overlay { background: linear-gradient(90deg, rgba(35,19,10,.91), rgba(13,10,7,.52)); }
+.booking-content .section-eyebrow { color: var(--brass-light); }
+.booking-content h2 { color: #f3ead9; }
+.contact { background: #0d0c0a; }
+.map-card { background: #16110d; border-color: rgba(214,178,76,.24); }
+.map-card-footer { background: linear-gradient(180deg, #1b140e, #120f0c); }
+.map-label, .contact-item > span { color: var(--brass); }
+.map-link { color: var(--brass-light); border-color: rgba(214,178,76,.45); }
+.site-footer { background: #080706; border-top-color: rgba(214,178,76,.2); }
+.footer-brand::after { content: "SINCE 2015  •  CLASSIC CUTS  •  BARBER EXPERIENCE"; display: block; max-width: 290px; margin-top: 20px; color: var(--brass); font-size: .62rem; font-weight: 700; letter-spacing: .16em; line-height: 1.7; }
+.footer-column h3 { color: var(--brass-light); }
+.footer-column a:hover, .footer-bottom a { color: var(--brass-light); }
+
+@media (max-width: 900px) {
+    .hero h1 { font-size: clamp(3.8rem, 13vw, 5.7rem); }
+    .hero-background { background-position: center, 64% center; }
+    .hero-ticker { padding-block: 10px; }
+    .professional-card { grid-template-columns: 1fr; }
+    .professional-image { position: relative; top: auto; height: 430px; }
+    .service-card:nth-child(even) { transform: none; }
+}
+
+@media (max-width: 768px) {
+    .hero { min-height: 760px; }
+    .hero-background { background-position: center, 62% center; }
+    .hero h1 { letter-spacing: -.06em; }
+    .hero-ticker div { font-size: .58rem; animation-duration: 19s; }
+    .services-grid { grid-template-columns: 1fr; gap: 14px; }
+    .service-card { grid-column: auto; }
+    .service-content { min-height: 0; padding: 27px 24px; }
+    .service-number { right: 20px; font-size: 4rem; }
+    .gallery-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+    .gallery-grid .gallery-item:nth-child(n) { display: block; grid-column: auto; grid-row: auto; min-height: 260px; }
+    .gallery-grid .gallery-item:nth-child(4) { display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero h1 .hero-line, .hero-description, .hero-actions, .hero-ticker div, .now-playing::before { animation: none; }
+    .hero-background { transform: none !important; }
+}

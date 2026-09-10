@@ -74,6 +74,37 @@
 (() => {
     'use strict';
 
+    const hero = document.querySelector('.hero');
+    const background = document.querySelector('.hero-background');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const desktop = window.matchMedia('(min-width: 901px)');
+    let frame = null;
+
+    if (!hero || !background || reducedMotion.matches) return;
+
+    const updateParallax = () => {
+        frame = null;
+        if (!desktop.matches) {
+            background.style.transform = '';
+            return;
+        }
+        const progress = Math.max(0, Math.min(1, window.scrollY / hero.offsetHeight));
+        background.style.transform = `scale(1.035) translate3d(0, ${progress * 34}px, 0)`;
+    };
+
+    const onScroll = () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(updateParallax);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    desktop.addEventListener('change', updateParallax);
+    updateParallax();
+})();
+
+(() => {
+    'use strict';
+
     const items = document.querySelectorAll([
         '.trust-strip-content',
         '.about-grid',
