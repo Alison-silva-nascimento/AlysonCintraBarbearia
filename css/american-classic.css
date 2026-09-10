@@ -128,6 +128,11 @@ body {
 .hero-ticker div { display: inline-block; padding-left: 100%; font-size: .66rem; font-weight: 700; letter-spacing: .18em; animation: classicTicker 24s linear infinite; }
 .hero-ticker span { padding-inline: 18px; color: var(--wine); }
 
+/* Mantém o atalho flutuante acima da faixa animada do Hero. */
+.floating-whatsapp {
+    bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+}
+
 @keyframes classicHeroReveal { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes classicTicker { to { transform: translateX(-50%); } }
 
