@@ -2002,6 +2002,32 @@ p:not(.section-eyebrow) {
     .unit-card { min-height: 440px; }
     .unit-card-content { padding: 28px; }
     .unit-card h3 { font-size: clamp(1.45rem, 2.25vw, 2rem); }
+
+    .booking-cta { min-height: 390px; }
+
+    .booking-content {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+        column-gap: clamp(42px, 8vw, 130px);
+        align-items: end;
+        padding-block: 72px;
+    }
+
+    .booking-content .section-eyebrow { grid-column: 1 / -1; }
+    .booking-content h2 {
+        max-width: 640px;
+        font-size: clamp(2.7rem, 4.6vw, 4.4rem);
+    }
+    .booking-content > p:not(.section-eyebrow) {
+        max-width: 390px;
+        margin: 0 0 18px;
+        font-size: 0.98rem;
+    }
+    .booking-content .btn {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 0;
+    }
 }
 
 /* A fachada dá contexto à marca sem ocupar a área do título. */

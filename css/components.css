@@ -2228,3 +2228,11 @@ img {
     .contact-item { grid-template-columns: 1fr; gap: 4px; padding-block: 14px; }
     .contact-item > span { padding-top: 0; }
 }
+
+/* Os mapas já concentram as rotas; não repetimos os mesmos atalhos abaixo. */
+.contact-details { display: none; }
+
+@media (min-width: 901px) {
+    .site-footer { padding: 64px 0 26px; }
+    .footer-main { padding-bottom: 44px; }
+}
