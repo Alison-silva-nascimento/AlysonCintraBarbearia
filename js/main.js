@@ -74,6 +74,39 @@
 (() => {
     'use strict';
 
+    const dialog = document.getElementById('galleryDialog');
+    const image = document.getElementById('galleryDialogImage');
+    const caption = document.getElementById('galleryCaption');
+    const closeButton = dialog?.querySelector('.gallery-close');
+    const items = document.querySelectorAll('.gallery-item[data-gallery-image]');
+    let opener = null;
+
+    if (!dialog || !image || !caption || !closeButton || !items.length) return;
+
+    const close = () => dialog.close();
+
+    items.forEach(item => item.addEventListener('click', () => {
+        opener = item;
+        image.src = item.dataset.galleryImage;
+        image.alt = item.dataset.galleryCaption;
+        caption.textContent = item.dataset.galleryCaption;
+        dialog.showModal();
+        closeButton.focus();
+    }));
+
+    closeButton.addEventListener('click', close);
+    dialog.addEventListener('click', event => {
+        if (event.target === dialog) close();
+    });
+    dialog.addEventListener('close', () => {
+        image.removeAttribute('src');
+        opener?.focus();
+    });
+})();
+
+(() => {
+    'use strict';
+
     const storageKey = 'alyson-cintra-feedbacks';
     const whatsappUrl = 'https://wa.me/5564981366855';
     const dialog = document.getElementById('feedbackDialog');
