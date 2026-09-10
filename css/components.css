@@ -85,14 +85,32 @@
     height: 1px;
     margin-top: 7px;
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff 0 48%,
-            rgba(255, 255, 255, 0.24) 48% 100%
-        );
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.24);
 
     transition: width var(--transition-base);
+}
+
+.brand::before {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: -31px;
+
+    width: 31px;
+    height: 1px;
+
+    background: #ffffff;
+
+    animation: brandLine 2.2s ease infinite;
+}
+
+@keyframes brandLine {
+    0% { left: -31px; }
+    50% { left: 62px; }
+    100% { left: 62px; }
 }
 
 .brand-logo {
@@ -117,6 +135,10 @@
 }
 
 .brand:hover::after { width: 72px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .brand::before { animation: none; left: 0; }
+}
 
 
 /* =========================================================
