@@ -105,6 +105,24 @@
 (() => {
     'use strict';
 
+    const hero = document.querySelector('.hero');
+    const mobile = window.matchMedia('(max-width: 820px)');
+
+    if (!hero || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+        document.body.classList.toggle('hero-past', mobile.matches && !entry.isIntersecting);
+    }, { threshold: 0.08 });
+
+    observer.observe(hero);
+    mobile.addEventListener('change', () => {
+        if (!mobile.matches) document.body.classList.remove('hero-past');
+    });
+})();
+
+(() => {
+    'use strict';
+
     const items = document.querySelectorAll([
         '.trust-strip-content',
         '.about-grid',
