@@ -72,9 +72,27 @@
     z-index: 1002;
 
     display: flex;
+    flex-direction: column;
     align-items: center;
 
     flex-shrink: 0;
+}
+
+.brand::after {
+    content: "";
+
+    width: 62px;
+    height: 1px;
+    margin-top: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff 0 48%,
+            rgba(255, 255, 255, 0.24) 48% 100%
+        );
+
+    transition: width var(--transition-base);
 }
 
 .brand-logo {
@@ -97,6 +115,8 @@
 
     transform: translateY(-1px);
 }
+
+.brand:hover::after { width: 72px; }
 
 
 /* =========================================================
