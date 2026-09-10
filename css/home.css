@@ -23,6 +23,42 @@
     background: #070707;
 }
 
+/* Faixa de confiança logo após a primeira impressão. */
+.trust-strip {
+    position: relative;
+    z-index: 2;
+
+    background: #111111;
+    border-block: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-strip-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 3vw, 48px);
+
+    min-height: 86px;
+}
+
+.trust-strip p {
+    margin: 0;
+
+    color: var(--color-muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.025em;
+}
+
+.trust-strip strong { color: #ffffff; font-weight: 600; }
+
+.trust-strip-content > span {
+    width: 4px;
+    height: 4px;
+
+    background: #ffffff;
+    border-radius: 50%;
+}
+
 
 /* =========================================================
    FUNDO DO HERO
@@ -654,6 +690,84 @@ p:not(.section-eyebrow) {
    SERVIÇOS
    ========================================================= */
 
+.units {
+    background: linear-gradient(135deg, #101010 0%, #151515 55%, #0c0c0c 100%);
+}
+
+.units-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.unit-card {
+    position: relative;
+    min-height: 520px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.unit-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 20%, rgba(0, 0, 0, 0.92) 100%);
+}
+
+.unit-card > img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.04);
+    transition: transform 900ms ease, filter 900ms ease;
+}
+
+.unit-card:hover > img {
+    transform: scale(1.05);
+    filter: grayscale(30%) contrast(1.04);
+}
+
+.unit-card-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: clamp(26px, 4vw, 42px);
+}
+
+.unit-number {
+    margin: 0 0 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.unit-card h3 {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+}
+
+.unit-card-content > p:not(.unit-number) {
+    max-width: 430px;
+    margin: 14px 0 24px;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.65;
+}
+
+.unit-card .text-link { color: #ffffff; }
+
 .services {
     position: relative;
 
@@ -1003,6 +1117,55 @@ article:hover {
     gap: 22px;
 }
 
+
+.faq {
+    background: #0f0f0f;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: clamp(38px, 8vw, 120px);
+    align-items: start;
+}
+
+.faq-grid .section-description { max-width: 360px; }
+
+.faq-list { border-top: 1px solid rgba(255, 255, 255, 0.16); }
+
+.faq-list details {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.faq-list summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0;
+
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; flex: 0 0 auto; color: var(--color-muted); font: 1.45rem/1 var(--font-heading); }
+.faq-list details[open] summary::after { content: "−"; color: #ffffff; }
+
+.faq-list details p {
+    max-width: 590px;
+    margin: -4px 0 22px;
+    color: var(--color-muted);
+    line-height: 1.7;
+}
+
+.faq-list summary:focus-visible { outline: 2px solid #ffffff; outline-offset: -2px; }
 
 /* =========================================================
    AGENDAMENTO
@@ -1772,6 +1935,21 @@ p:not(.section-eyebrow) {
 }
 
 @media (max-width: 768px) {
+    .trust-strip-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        min-height: 0;
+        padding-block: 20px;
+    }
+
+    .trust-strip-content > span { display: none; }
+
+    .units-grid,
+    .faq-grid { grid-template-columns: 1fr; }
+
+    .unit-card { min-height: 440px; }
+
     .gallery-grid .gallery-item {
         width: 100%;
         min-width: 0;
@@ -1782,6 +1960,26 @@ p:not(.section-eyebrow) {
         grid-column: 1;
         grid-row: auto;
         min-height: 320px;
+    }
+}
+
+/* Movimento discreto, respeitando a preferência do visitante. */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(.22, .61, .36, 1);
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
 

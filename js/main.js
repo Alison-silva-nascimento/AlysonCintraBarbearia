@@ -74,6 +74,43 @@
 (() => {
     'use strict';
 
+    const items = document.querySelectorAll([
+        '.trust-strip-content',
+        '.about-grid',
+        '.units .section-heading',
+        '.unit-card',
+        '.services .section-heading',
+        '.service-card',
+        '.professionals .section-heading',
+        '.professional-card',
+        '.gallery .section-heading',
+        '.gallery-item',
+        '.faq-grid',
+        '.booking-content',
+        '.contact-grid'
+    ].join(','));
+
+    if (!items.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    items.forEach((item, index) => {
+        item.dataset.reveal = '';
+        item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.12 });
+
+    items.forEach(item => observer.observe(item));
+})();
+
+(() => {
+    'use strict';
+
     const dialog = document.getElementById('galleryDialog');
     const image = document.getElementById('galleryDialogImage');
     const caption = document.getElementById('galleryCaption');
