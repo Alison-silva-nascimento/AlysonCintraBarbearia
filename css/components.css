@@ -1187,6 +1187,14 @@ footer span {
         var(--color-muted);
 }
 
+.map-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
 .map-link {
     flex-shrink: 0;
 
@@ -1613,6 +1621,10 @@ img {
         gap: 20px;
 
         padding: 22px;
+    }
+
+    .map-actions {
+        justify-content: flex-start;
     }
 
     .map-link:hover {
