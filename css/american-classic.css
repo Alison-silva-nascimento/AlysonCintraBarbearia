@@ -923,3 +923,7 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 .professional-image > img,
 .service-card:hover .service-image img,
 .professional-card:hover .professional-image > img { filter: none !important; }
+
+/* Galeria de ambientes em cor, no desktop e no mobile. */
+.gallery-item img,
+.gallery-item:hover img { filter: none !important; }
