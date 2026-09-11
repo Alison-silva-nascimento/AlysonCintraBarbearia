@@ -927,3 +927,11 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 /* Galeria de ambientes em cor, no desktop e no mobile. */
 .gallery-item img,
 .gallery-item:hover img { filter: none !important; }
+
+/* Desktop: preserva a altura das imagens e melhora o enquadramento dos cortes. */
+@media (min-width: 821px) {
+    .service-image-trigger { flex: 0 0 auto; }
+    .service-card:nth-child(1) .service-image img { object-position: center 38%; }
+    .service-card:nth-child(2) .service-image img { object-position: center 56%; }
+    .service-card:nth-child(3) .service-image img { object-position: center 38%; }
+}
