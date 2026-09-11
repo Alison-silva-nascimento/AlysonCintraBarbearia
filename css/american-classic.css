@@ -447,11 +447,22 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .mobile-unit-tabs button, .mobile-contact-tabs button { min-height: 42px; }
     .mobile-action-bar { gap: 7px; padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
     .mobile-action-bar .floating-whatsapp, .mobile-action-bar .mobile-booking { min-height: 44px; }
+
+    .site-footer .container, .footer-main, .footer-brand, .footer-bottom {
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .footer-brand::after { margin-inline: auto; }
+    .footer-bottom { width: 100%; }
 }
 
 @media (max-width: 480px) {
     .hero-content { padding-top: calc(var(--header-height) + 22px); padding-bottom: 50px; }
     .hero-ticker div { padding-left: 62%; }
+    .mobile-quick-nav { gap: 5px; overflow: hidden; }
+    .mobile-quick-nav a { flex: 1 1 0; min-width: 0; min-height: 36px; padding: 9px 4px; font-size: .54rem; letter-spacing: .045em; text-align: center; }
 }
 
 /* Navegação e coleções compactas exclusivas do mobile. */
