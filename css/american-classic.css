@@ -790,3 +790,8 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 @media (max-width: 820px) {
     .mobile-action-bar .floating-whatsapp { font-size: .57rem; letter-spacing: .035em; }
 }
+
+/* Abas do contato: apenas o painel ativo fica visível em telas móveis. */
+@media (max-width: 820px) {
+    .mobile-contact-panel[hidden] { display: none !important; }
+}
