@@ -844,3 +844,18 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .rating-fieldset { min-width: 0; max-width: 100%; }
     .feedback-form select { width: 100%; }
 }
+
+/* Alternativa ao select nativo para evitar popup maior que o modal. */
+.message-type-fieldset { margin: 8px 0 0; padding: 0; border: 0; }
+.message-type-fieldset legend { margin-bottom: 10px; color: var(--color-text); font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.message-type-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+.message-type-options input { position: absolute; opacity: 0; }
+.message-type-options label { display: grid; min-height: 42px; place-items: center; margin: 0; padding: 8px 10px; color: var(--color-text-soft); border: 1px solid rgba(183,183,183,.3); font-size: .7rem; line-height: 1; cursor: pointer; }
+.message-type-options input:checked + label { color: #080808; background: #ffffff; border-color: #ffffff; }
+.message-type-options input:focus-visible + label { outline: 2px solid #ffffff; outline-offset: 3px; }
+
+@media (max-width: 820px) {
+    .message-type-fieldset { margin-top: 3px; }
+    .message-type-fieldset legend { margin-bottom: 7px; font-size: .66rem; }
+    .message-type-options label { min-height: 38px; font-size: .64rem; }
+}

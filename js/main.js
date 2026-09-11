@@ -243,7 +243,7 @@
     const status = document.getElementById('feedbackStatus');
     const triggers = document.querySelectorAll('.feedback-trigger');
     const closeButton = dialog?.querySelector('.feedback-close');
-    const typeSelect = document.getElementById('feedbackType');
+    const typeOptions = [...form?.querySelectorAll('input[name="type"]') || []];
     const ratingFieldset = form?.querySelector('.rating-fieldset');
     let opener = null;
 
@@ -316,12 +316,13 @@
     dialog.addEventListener('close', () => opener?.focus());
 
     const updateMessageType = () => {
-        const isQuestion = typeSelect.value === 'Pergunta';
+        const selectedType = form.querySelector('input[name="type"]:checked')?.value || 'Feedback';
+        const isQuestion = selectedType === 'Pergunta';
         ratingFieldset.hidden = isQuestion;
         ratingFieldset.disabled = isQuestion;
     };
 
-    typeSelect.addEventListener('change', updateMessageType);
+    typeOptions.forEach(option => option.addEventListener('change', updateMessageType));
     updateMessageType();
 
     form.addEventListener('submit', event => {
