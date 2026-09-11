@@ -781,3 +781,8 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
         text-align: center;
     }
 }
+
+/* Crédito preservado no rodapé mobile. */
+@media (max-width: 820px) {
+    .footer-bottom p:last-child { display: block; }
+}
