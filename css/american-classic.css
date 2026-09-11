@@ -422,6 +422,38 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .floating-whatsapp { bottom: calc(174px + env(safe-area-inset-bottom, 0px)); font-size: .57rem; }
 }
 
+/* Acabamento final do fluxo mobile V2. */
+@media (max-width: 820px) {
+    :root { --mobile-action-bar-height: calc(68px + env(safe-area-inset-bottom, 0px)); }
+    #conteudo { padding-bottom: 12px; }
+    .site-footer { padding-bottom: calc(var(--mobile-action-bar-height) + 26px); }
+
+    .hero { min-height: 82dvh; }
+    .hero-content { padding-top: calc(var(--header-height) + 30px); padding-bottom: 56px; }
+    .hero-description { margin-top: 15px; }
+    .hero-actions { margin-top: 19px; }
+    .hero-ticker { min-height: 34px; padding-block: 6px; background: #1a1a1a; }
+    .hero-ticker div { padding-left: 70%; font-size: .48rem; letter-spacing: .08em; animation-duration: 24s; }
+
+    .mobile-quick-nav { padding-block: 9px; border-top: 1px solid rgba(183,183,183,.1); }
+    .mobile-quick-nav a { min-height: 38px; padding: 9px 13px; }
+    .mobile-menu { padding-top: calc(var(--header-height) + 16px); }
+    .mobile-menu-cta { margin-top: 16px; }
+
+    .services-grid { grid-auto-columns: minmax(91%, 390px); gap: 10px; padding-bottom: 12px; }
+    .gallery-grid { grid-auto-columns: minmax(88%, 390px); gap: 10px; }
+    .testimonials-grid { grid-auto-columns: minmax(90%, 390px); gap: 10px; }
+    .mobile-unit-tabs, .mobile-contact-tabs { gap: 6px; }
+    .mobile-unit-tabs button, .mobile-contact-tabs button { min-height: 42px; }
+    .mobile-action-bar { gap: 7px; padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
+    .mobile-action-bar .floating-whatsapp, .mobile-action-bar .mobile-booking { min-height: 44px; }
+}
+
+@media (max-width: 480px) {
+    .hero-content { padding-top: calc(var(--header-height) + 22px); padding-bottom: 50px; }
+    .hero-ticker div { padding-left: 62%; }
+}
+
 /* Navegação e coleções compactas exclusivas do mobile. */
 .mobile-quick-nav, .mobile-unit-tabs, .mobile-contact-tabs, .mobile-action-bar { display: none; }
 
