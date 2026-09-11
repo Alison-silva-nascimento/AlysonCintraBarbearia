@@ -756,3 +756,24 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .trust-strip p { padding-inline: 8px; font-size: .61rem; }
     .trust-strip strong { font-size: .83rem; }
 }
+
+/* Atalhos compactos sem corte no mobile pequeno. */
+@media (max-width: 480px) {
+    .mobile-quick-nav {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 5px;
+        overflow: hidden;
+        padding: 9px 8px;
+        scroll-snap-type: none;
+    }
+    .mobile-quick-nav a {
+        min-width: 0;
+        min-height: 36px;
+        padding: 9px 2px;
+        font-size: .52rem;
+        letter-spacing: .025em;
+        line-height: 1;
+        text-align: center;
+    }
+}
