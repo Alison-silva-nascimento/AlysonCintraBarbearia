@@ -143,7 +143,7 @@
 
     items.forEach((item, index) => {
         item.dataset.reveal = '';
-        item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+        item.style.transitionDelay = `${Math.min(index % 4, 3) * 50}ms`;
     });
 
     const observer = new IntersectionObserver(entries => {
@@ -152,7 +152,7 @@
             entry.target.classList.add('is-visible');
             observer.unobserve(entry.target);
         });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.01, rootMargin: '0px 0px -15% 0px' });
 
     items.forEach(item => observer.observe(item));
 })();
