@@ -911,3 +911,9 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 @media (max-width: 820px) {
     .service-card:nth-child(2) .service-image img { object-position: center 62%; }
 }
+
+/* Fotos de serviços e profissionais permanecem coloridas. */
+.service-image img,
+.professional-image > img { filter: saturate(1.04) contrast(1.03); }
+.service-card:hover .service-image img,
+.professional-card:hover .professional-image > img { filter: saturate(1.08) contrast(1.05); }
