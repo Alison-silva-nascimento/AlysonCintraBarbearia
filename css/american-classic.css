@@ -859,3 +859,8 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .message-type-fieldset legend { margin-bottom: 7px; font-size: .66rem; }
     .message-type-options label { min-height: 38px; font-size: .64rem; }
 }
+
+/* No desktop, o indicador fica acima da faixa animada do Hero. */
+@media (min-width: 821px) {
+    .scroll-indicator { bottom: 86px; }
+}
