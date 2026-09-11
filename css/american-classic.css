@@ -864,3 +864,20 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 @media (min-width: 821px) {
     .scroll-indicator { bottom: 86px; }
 }
+
+/* Indicador de descoberta separado do Hero e acima dos diferenciais no desktop. */
+.desktop-scroll-cue { display: none; }
+@media (min-width: 821px) {
+    .desktop-scroll-cue {
+        display: flex;
+        align-items: center;
+        height: 54px;
+        background: #080808;
+        border-bottom: 1px solid rgba(183,183,183,.12);
+    }
+    .desktop-scroll-cue .scroll-indicator {
+        position: static;
+        margin-left: max(var(--container-padding), calc((100vw - var(--container-width)) / 2));
+    }
+    .hero > .scroll-indicator { display: none; }
+}
