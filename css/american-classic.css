@@ -917,3 +917,9 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
 .professional-image > img { filter: saturate(1.04) contrast(1.03); }
 .service-card:hover .service-image img,
 .professional-card:hover .professional-image > img { filter: saturate(1.08) contrast(1.05); }
+
+/* Garante cor total nas fotos, inclusive em navegadores móveis com regras anteriores em cache. */
+.service-image img,
+.professional-image > img,
+.service-card:hover .service-image img,
+.professional-card:hover .professional-image > img { filter: none !important; }
