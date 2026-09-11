@@ -829,3 +829,18 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     .feedback-dialog h2 { font-size: 1.62rem; }
     .feedback-form textarea { min-height: 96px; }
 }
+
+/* Impede que controles nativos ampliem o formulário horizontalmente. */
+@media (max-width: 820px) {
+    .feedback-dialog {
+        inline-size: min(calc(100% - 28px), 430px);
+        max-inline-size: calc(100% - 28px);
+        overflow-x: clip;
+    }
+    .feedback-form,
+    .feedback-form input,
+    .feedback-form select,
+    .feedback-form textarea,
+    .rating-fieldset { min-width: 0; max-width: 100%; }
+    .feedback-form select { width: 100%; }
+}
