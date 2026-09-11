@@ -206,7 +206,7 @@
     const image = document.getElementById('galleryDialogImage');
     const caption = document.getElementById('galleryCaption');
     const closeButton = dialog?.querySelector('.gallery-close');
-    const items = document.querySelectorAll('.gallery-item[data-gallery-image]');
+    const items = document.querySelectorAll('.gallery-item[data-gallery-image], .service-image-trigger');
     let opener = null;
 
     if (!dialog || !image || !caption || !closeButton || !items.length) return;
@@ -214,10 +214,14 @@
     const close = () => dialog.close();
 
     items.forEach(item => item.addEventListener('click', () => {
+        const sourceImage = item.querySelector('img');
+        const source = item.dataset.galleryImage || sourceImage?.currentSrc || sourceImage?.src;
+        const description = item.dataset.galleryCaption || sourceImage?.alt || 'Imagem do serviço';
+        if (!source) return;
         opener = item;
-        image.src = item.dataset.galleryImage;
-        image.alt = item.dataset.galleryCaption;
-        caption.textContent = item.dataset.galleryCaption;
+        image.src = source;
+        image.alt = description;
+        caption.textContent = description;
         dialog.showModal();
         closeButton.focus();
     }));

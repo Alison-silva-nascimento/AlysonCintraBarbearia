@@ -891,3 +891,18 @@ body { background-color: var(--color-bg); background-image: radial-gradient(circ
     }
     .contact-grid .opening-hours { margin-top: 10px; }
 }
+
+/* Imagens dos serviços mais presentes e ampliáveis no mobile. */
+.service-image-trigger {
+    display: block;
+    padding: 0;
+    border: 0;
+    cursor: zoom-in;
+    font: inherit;
+    text-align: inherit;
+}
+.service-image-trigger:focus-visible { outline: 2px solid #ffffff; outline-offset: 4px; }
+
+@media (max-width: 820px) {
+    .services-grid .service-image { aspect-ratio: 4 / 3; }
+}
