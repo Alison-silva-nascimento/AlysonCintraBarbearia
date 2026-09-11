@@ -74,6 +74,25 @@
 (() => {
     'use strict';
 
+    const tabs = [...document.querySelectorAll('.mobile-contact-tabs [role="tab"]')];
+    const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+    const mobile = window.matchMedia('(max-width: 820px)');
+
+    if (!tabs.length || panels.some(panel => !panel)) return;
+
+    const select = index => {
+        panels.forEach((panel, panelIndex) => { panel.hidden = mobile.matches && panelIndex !== index; });
+        tabs.forEach((tab, tabIndex) => tab.setAttribute('aria-selected', String(tabIndex === index)));
+    };
+
+    tabs.forEach((tab, index) => tab.addEventListener('click', () => select(index)));
+    mobile.addEventListener('change', () => select(0));
+    select(0);
+})();
+
+(() => {
+    'use strict';
+
     const tabs = [...document.querySelectorAll('.mobile-unit-tabs [role="tab"]')];
     const cards = [...document.querySelectorAll('.units-grid .unit-card')];
     const mobile = window.matchMedia('(max-width: 820px)');
